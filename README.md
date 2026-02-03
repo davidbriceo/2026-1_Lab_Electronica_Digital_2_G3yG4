@@ -81,11 +81,11 @@ Cada laboratorio contará con su respectiva guía y fecha de entrega asociada.
 
 | Semana | Nombre                          | Guía  | Entrega (GitHub Classroom) | Deadline   |
 | ------ | ------------------------------- | ----- | -------------------------- | ---------- |
-| 1-2    | Algoritmia e instalación de herramientas básicas| lab00 | Link       | TBD |
-| 4-5    | Lab01 - Multiplicador y ASM     | lab01 | Link                       | TBD |
-| 6-7    | Lab02 - ALU                     | lab02 | Link                       | TBD |
-| 8-9    | Lab03 - ALU y banco registro    | lab03 | Link                       | TBD |
-| 11-14  | Lab04 - Procesador Block Design | lab04 | Link                       | TBD |
+| 1-2    | Lab 00 - Algoritmia e instalación de herramientas básicas| lab00 | Link       | 20/Feb/2026 |
+| 3-5    | Lab01 - FPGA, Multiplicador y ASM     | lab01 | Link                       | 13/Mar/2026 |
+| 6-7    | Lab02 - ALU                     | lab02 | Link                       | 27/Mar/2026 |
+| 8-9    | Lab03 - ALU y banco registro    | lab03 | Link                       | 17/Abr/2026 |
+| 11-14  | Lab04 - Procesador Block Design | lab04 | Link                       | 22/May/2026 |
 | 15-16  | Proyecto final                  | -     | Link                       | TBD |
 
 
