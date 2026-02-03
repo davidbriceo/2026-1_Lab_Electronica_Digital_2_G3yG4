@@ -79,6 +79,16 @@ Cada práctica deberá incluir:
 El cronograma detallado de prácticas será publicado y actualizado en este repositorio.  
 Cada laboratorio contará con su respectiva guía y fecha de entrega asociada.
 
+| Semana | Nombre                          | Guía  | Entrega (GitHub Classroom) | Deadline   |
+| ------ | ------------------------------- | ----- | -------------------------- | ---------- |
+| 1-2    | Algoritmia e instalación de herramientas básicas| lab00 | Link       | TBD |
+| 4-5    | Lab01 - Multiplicador y ASM     | lab01 | Link                       | TBD |
+| 6-7    | Lab02 - ALU                     | lab02 | Link                       | TBD |
+| 8-9    | Lab03 - ALU y banco registro    | lab03 | Link                       | TBD |
+| 11-14  | Lab04 - Procesador Block Design | lab04 | Link                       | TBD |
+| 15-16  | Proyecto final                  | -     | Link                       | TBD |
+
+
 ---
 
 ## Entregables y documentación
