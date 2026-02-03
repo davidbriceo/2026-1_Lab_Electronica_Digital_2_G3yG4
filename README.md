@@ -1,4 +1,4 @@
-# Laboratorio de Electrónica Digital II  
+# Laboratorio de Electrónica Digital II G3 Y G4
 **Semestre 2026-1**
 
 Repositorio oficial del curso **Laboratorio de Electrónica Digital II**, asociado a la asignatura de Electrónica Digital II.  
