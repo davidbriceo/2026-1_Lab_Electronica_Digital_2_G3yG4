@@ -89,9 +89,16 @@ Este laboratorio utilizará:
 3. Visualice las señales en GTKWave para verificar el correcto funcionamiento del entorno.
 
 Paso a paso: 
-Descargue el archivo [smoke_andor.v](labs/lab00/src/smoke_andor.v) y el archivo [tb_smoke_andor.v](labs/lab00/src/tb_smoke_andor.v) y visualícelos en Visual Studio Code (VSC).
+Descargue el archivo [smoke_andor.v](src/smoke_andor.v) y el archivo [tb_smoke_andor.v](src/tb_smoke_andor.v) y visualícelos en Visual Studio Code (VSC).
 
 Abra una nueva terminal dentro de VSC y ejecute los siguientes comandos:
+1. Compilar (-o)
+`iverilog -o tb_smoke_andor.vvp tb_smoke_andor.v`
+2. Simular (vvp = generar el .vcd)
+`vvp tb_smoke_andor.vvp`
+3. Ver ondas en GTKWave
+`gtkwave`
+New tab, abrir el archivo .vcd, poner las señales de su interés:
 
 
 
