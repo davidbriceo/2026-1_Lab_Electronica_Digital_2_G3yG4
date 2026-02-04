@@ -80,8 +80,7 @@ Este laboratorio utilizará:
 
 #### 3.0.0.2 Instalación de Visual Studio Code
 1. Descargue el instalador desde:
-   - [[Visual Studio Code]((https://code.visualstudio.com/))]
-   - 
+   - [[Visual Studio Code](https://code.visualstudio.com)]
 
 ### 3.0 Verificación del entorno de trabajo (Smoke Test: si lo enciendo y no sale humo, al menos algo básico funciona)
 
@@ -90,9 +89,11 @@ Este laboratorio utilizará:
 3. Visualice las señales en GTKWave para verificar el correcto funcionamiento del entorno.
 
 Paso a paso: 
-Descargue el archivo smoke_andor.v y el archivo tb_smoke_andor.v , abralos y visualícelos en Visual Studio Code (VSC).
+Descargue el archivo [smoke_andor.v](labs/lab00/src/smoke_andor.v) y el archivo [tb_smoke_andor.v](labs/lab00/src/tb_smoke_andor.v) y visualícelos en Visual Studio Code (VSC).
 
 Abra una nueva terminal dentro de VSC y ejecute los siguientes comandos:
+
+
 
 
 
