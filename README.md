@@ -159,3 +159,9 @@ Se valorará positivamente la inclusión de **mejoras, optimizaciones o análisi
 - Anuncios oficiales a través de GitHub Classroom.
 
 ---
+
+## Recursos adicionales:
+- [Curso Verilog y FPGA en Youtube](https://www.youtube.com/watch?v=GLfnmc4Vv5U&list=PLIyIZGa1sAZqeQJ6Y02b7O8HV0gK25zc2)
+- [Instalación Linux + Windows dualboot en el mismo disco](https://www.youtube.com/watch?v=wIj7sHK0SkQ)
+- [Instalación Linux + Windows en discos diferentes, tenga mucho cuidado](https://www.youtube.com/watch?v=KWVte9WGxGE)
+- [Curso en Coursera de verilog y HDL, primero debe solicitar el acceso al convenio al correo coursera@unal.edu.co](https://www.coursera.org/programs/coursera-para-la-universidad-nacional-de-colombia-ji3sj/learn/fpga-hardware-description-languages?source=search#modules)
