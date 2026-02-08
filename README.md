@@ -107,19 +107,77 @@ Es fundamental respetar la estructura y las indicaciones definidas en cada plant
 
 ## Criterios de evaluación
 
-La evaluación del laboratorio tendrá en cuenta:
+La evaluación del Laboratorio de Electrónica Digital II se realizará con base en la asistencia, el desarrollo de las prácticas, el proyecto final y la calidad del proceso de diseño y documentación.
 
-- **Preparación previa:** evidencia de estudio y configuración adecuada.
-- **Desarrollo de la práctica:** participación, análisis y solución de problemas.
-- **Flujo de diseño digital**, incluyendo:
-  - Diseño del sistema.
+---
+
+### Asistencia
+
+La aprobación del laboratorio requiere un **mínimo del 90 % de asistencia**.
+
+- El laboratorio cuenta con **16 sesiones** presenciales.
+- A partir de la **segunda inasistencia**, la **nota máxima** que el estudiante podrá obtener en el laboratorio será **2.9**, independientemente de los resultados académicos obtenidos en las prácticas o el proyecto final.
+
+---
+
+### Estructura de evaluación del laboratorio
+
+El laboratorio consta de **cinco (5) prácticas** y **un proyecto final**, con la siguiente distribución porcentual sobre la nota final del laboratorio:
+
+- **Práctica 00:** 10 %
+- **Práctica 01:** 15 %
+- **Práctica 02:** 15 %
+- **Práctica 03:** 15 %
+- **Práctica 04:** 15 %
+- **Proyecto final:** 30 %
+
+---
+
+### Rúbrica de evaluación de las prácticas (Lab00 a Lab04)
+
+Cada práctica será evaluada con base en dos componentes principales:
+
+#### 1️⃣ Demostración y presentación en laboratorio (40 %)
+
+Corresponde a la **demostración del funcionamiento del diseño durante la sesión de laboratorio**, y tendrá en cuenta:
+
+- Correcto funcionamiento del sistema solicitado.
+- Capacidad de explicar el diseño propuesto.
+- Coherencia entre el comportamiento esperado y los resultados obtenidos.
+- Manejo adecuado de las herramientas de simulación e implementación.
+
+#### 2️⃣ Informe técnico y documentación (60 %)
+
+El informe deberá entregarse a través de **GitHub Classroom** y será evaluado considerando:
+
+- **Descripción del sistema y del flujo de diseño digital**, incluyendo:
+  - Planteamiento del diseño.
   - Descripción en HDL (Hardware Description Language).
-  - Simulación.
-  - Implementación.
-- **Demostración del funcionamiento del diseño** durante la sesión de laboratorio.
-- **Documentación en GitHub Classroom:** claridad, organización, cumplimiento de plazos y calidad del análisis.
+- **Diagramas y representaciones gráficas**, tales como:
+  - Diagrama o dibujo de la máquina de estados (cuando aplique).
+  - Diagramas de bloques relevantes.
+- **Resultados de simulación**, con análisis e interpretación.
+- **Implementación del diseño**, cuando aplique.
+- **Código fuente**, correctamente organizado y comentado.
+- **Estructura y organización del repositorio**, claridad del README y uso adecuado de Markdown.
 
-Se valorará positivamente la inclusión de **mejoras, optimizaciones o análisis adicionales** más allá de lo solicitado.
+---
+
+### Evaluación del proyecto final
+
+El **proyecto final** integrará los conocimientos y habilidades desarrollados durante el semestre, y será evaluado considerando:
+
+- Correcta aplicación del flujo de diseño de sistemas digitales.
+- Funcionamiento del sistema propuesto.
+- Nivel de complejidad y alcance del diseño.
+- Calidad de la documentación técnica y del repositorio.
+- Claridad en la presentación y defensa del proyecto.
+
+---
+
+### Consideraciones adicionales
+
+Se valorará positivamente la inclusión de **mejoras, optimizaciones o análisis adicionales** más allá de lo solicitado en las guías, siempre que estén debidamente justificadas y documentadas.
 
 ---
 
