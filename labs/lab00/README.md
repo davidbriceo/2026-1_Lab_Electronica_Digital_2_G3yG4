@@ -166,6 +166,176 @@ Diseñar un sistema secuencial que acumula un valor de entrada durante varios ci
 - Sumar `x` hasta que `acc ≥ 20`.
 - Incluir una señal de cancelación.
 
+
+### 3.3 Ejercicio 3 (Grupal): Diseño y simulación de una ASM completa (Control + Datapath)
+
+En este ejercicio se implementará un sistema secuencial que permita comprender el funcionamiento de una **Máquina de Estados Algorítmica (ASM)** en su forma completa, integrando:
+
+- Control (máquina de estados)
+- Datapath (registros y contadores)
+- Temporización explícita
+- Señales de inicio y finalización
+
+El objetivo es mostrar el **panorama global del sistema**, no únicamente una FSM aislada.
+
+
+#### Objetivo
+
+Diseñar un transmisor serial síncrono de 8 bits que:
+
+1. Reciba un byte de entrada.
+2. Lo transmita bit a bit por una línea serial.
+3. Controle la duración temporal de cada bit.
+4. Indique cuándo la transmisión ha finalizado.
+
+El diseño deberá verificarse mediante simulación en **Icarus Verilog + GTKWave**.
+
+
+#### Entradas
+
+- `clk` – Reloj del sistema.
+- `rst` – Señal de reset.
+- `start` – Pulso de inicio de transmisión (1 ciclo).
+- `data_in[7:0]` – Byte a transmitir.
+
+
+#### Salidas
+
+- `tx` – Línea de salida serial.
+- `busy` – Indica que la transmisión está en curso.
+- `done` – Pulso de 1 ciclo al finalizar la transmisión.
+
+
+#### Parámetro de temporización
+
+El diseño debe incluir el parámetro:
+
+```
+parameter CLKS_PER_BIT = N;
+```
+
+Este parámetro define cuántos ciclos de clk dura cada bit transmitido.
+Para simulación se recomienda usar valores pequeños (ej. 8, 10 o 16)
+
+### Comportamiento esperado
+
+##### Estado IDLE
+- `busy = 0`
+- `tx = 1` (línea en reposo)
+- Espera la señal `start`.
+
+##### Estado LOAD
+- Carga `data_in` en un registro interno `shift_reg`.
+- Reinicia:
+  - `bit_count`
+  - `tick_cnt`
+- Activa `busy = 1`.
+
+##### Estado TRANSMIT (BIT_HOLD / SHIFT_NEXT)
+
+Por cada uno de los 8 bits:
+
+- `tx` toma el valor del bit actual del registro (`shift_reg[0]` si es LSB primero).
+- `tick_cnt` cuenta desde `0` hasta `CLKS_PER_BIT - 1`.
+- Cuando `tick_cnt` alcanza el valor máximo:
+  - Se reinicia `tick_cnt`.
+  - Se desplaza `shift_reg`.
+  - Se incrementa `bit_count`.
+  - Se continúa con el siguiente bit.
+
+Este proceso se repite hasta transmitir los 8 bits.
+
+##### Estado DONE
+- `done = 1` durante un solo ciclo de reloj.
+- `busy = 0`.
+- El sistema retorna al estado `IDLE`.
+
+
+#### Requisitos de diseño (obligatorios)
+
+El sistema debe incluir explícitamente:
+
+- Una **ASM claramente definida**, con estados tales como:
+  - `IDLE`
+  - `LOAD`
+  - `BIT_HOLD`
+  - `SHIFT_NEXT`
+  - `DONE`
+
+- Un registro de desplazamiento:
+  ```
+  reg [7:0] shift_reg;
+  ```
+- Un contador de bits:
+  ```
+  reg [2:0] bit_count;
+  ```
+- Un contador de temporización:
+  ```
+  reg [$clog2(CLKS_PER_BIT)-1:0] tick_cnt;
+  ```
+#### Verificación en simulación
+
+El repositorio debe incluir un **testbench** que permita verificar el funcionamiento completo del sistema.
+
+El testbench debe:
+
+1. Aplicar `rst` al inicio de la simulación.
+2. Generar al menos **dos transmisiones distintas**, por ejemplo:
+   - `8'hA5`
+   - `8'h3C`
+3. Generar el archivo `wave.vcd` para su posterior análisis en GTKWave.
+4. Asegurar que la señal `start` sea un **pulso de un solo ciclo**.
+
+
+#### Señales mínimas a visualizar en GTKWave
+
+En la simulación deben visualizarse, como mínimo, las siguientes señales:
+
+- `clk`
+- `rst`
+- `start`
+- `state`
+- `data_in`
+- `shift_reg`
+- `bit_count`
+- `tick_cnt`
+- `tx`
+- `busy`
+- `done`
+
+El análisis debe permitir observar:
+
+- La transición correcta entre estados.
+- La duración exacta de cada bit transmitido.
+- El desplazamiento progresivo de `shift_reg`.
+- El incremento adecuado de `bit_count`.
+- La activación correcta de `busy` y `done`.
+
+#### Evidencia requerida en el README
+
+El informe debe incluir:
+
+- Descripción breve de la ASM implementada.
+- Explicación del funcionamiento observado en GTKWave.
+- Confirmación explícita de:
+  - Transmisión correcta de los 8 bits.
+  - Duración exacta de cada bit (`CLKS_PER_BIT` ciclos).
+  - Activación correcta de `busy` durante la transmisión.
+  - Activación de `done` por un único ciclo al finalizar.
+ 
+#### Criterios de éxito
+
+El ejercicio se considera correcto si se cumplen todas las siguientes condiciones:
+
+- Se transmiten correctamente los 8 bits del dato de entrada en el orden especificado.
+- Cada bit permanece estable durante exactamente `CLKS_PER_BIT` ciclos de reloj.
+- La señal `busy` se mantiene activa durante toda la transmisión.
+- La señal `done` se activa por un único ciclo al finalizar el envío del byte.
+- La evolución interna del sistema (estado, contadores y registro de desplazamiento) es coherente y verificable en la simulación.
+
+
+
 ---
 
 ## 4. Descripción del HDL base
