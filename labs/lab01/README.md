@@ -119,17 +119,15 @@ Si trabaja sobre Linux (acuda a este repositorio)[https://github.com/jharamirezm
 
 #### Descripción
 
-El docente proveerá un **bitstream de Smoke Test** para validar que la tarjeta está operativa y que el mapeo
+El docente proveerá un **Smoke Test** para validar que la tarjeta está operativa y que el mapeo
 de entradas/salidas es el correcto. Montaremos el semáforo que diseñamos en la práctica anterior
 
 #### Actividad 1
 
-1. Programe la Zybo Z7 con el bitstream provisto.
-2. Verifique físicamente el comportamiento esperado:
-   - Respuesta de switches
-   - Respuesta de botones
-   - Funcionamiento de LEDs RGB
-   - Indicación de reloj (parpadeo o patrón temporal)
+1. Descargue el smoke test en el siguiente [link](src/semaforo.v) este será una versión básica del semáforo realizado en la práctica anterior
+2. Lea y entienda cómo opera el código, además de identificar la(s) salidas y su implementación en el constrain, usaremos el LED RGB #6.
+3. Corra la síntesis y la implementación el Vivado, luego, programe la Zybo Z7 con el bitstream generado tal como fue explicado en el tutorial visto en clase.
+4. Verifique físicamente el comportamiento esperado.
 
 > Si el Smoke Test no funciona correctamente, el estudiante debe resolver el problema de instalación, drivers,
 cableado, o selección de tarjeta antes de continuar al Ejercicio 2.
@@ -141,16 +139,21 @@ cableado, o selección de tarjeta antes de continuar al Ejercicio 2.
 En este ejercicio cada estudiante diseñará su propio sistema **combinacional** para validar rápidamente
 que la FPGA, los pines y el `.xdc` funcionan correctamente.
 
+---
+
 #### Recursos disponibles (obligatorios)
 
 - **Entradas:**
   - `SW[3:0]` (4 switches)
   - `BTN[5:0]` (6 botones)
-- **Salidas:**
-  - `LED_RGB[4:0]` (5 LEDs RGB)
 
-> Importante: En este laboratorio los LEDs RGB se consideran “salidas visuales”.
-> Cada estudiante decidirá cómo utilizar canales/colores según el wrapper provisto en el proyecto.
+- **Salidas:**
+  - `LED[3:0]` (4 LEDs verdes ON/OFF)
+  - `LED_RGB` (1 LED RGB: canales R, G, B)
+
+> Total salidas visuales disponibles:  
+> - 4 bits binarios directos  
+> - 3 canales RGB adicionales  
 
 ---
 
@@ -158,71 +161,106 @@ que la FPGA, los pines y el `.xdc` funcionan correctamente.
 
 El diseño debe cumplir **TODOS** los siguientes requisitos:
 
-1. **Usar las 10 entradas** disponibles:
-   - Los 4 switches deben afectar el comportamiento de forma verificable.
-   - Los 6 botones deben afectar el comportamiento de forma verificable.
-2. Utilizar como salida los **5 LEDs RGB** (los cinco deben participar de alguna forma en el test).
-3. Incluir explícitamente en el HDL (al menos una vez cada uno):
-   - Una operación **AND**
-   - Una operación **OR**
-   - Una operación **XOR**
-4. Incluir una operación aritmética de **4 bits**:
-   - **Suma** o **resta** (por ejemplo: `A + B` o `A - B`)
-5. El diseño **NO** puede ser trivial:
-   - No se permite “un botón enciende un LED” sin lógica adicional.
-   - No se permite cableado directo sin procesamiento (por ejemplo `assign led = sw;` como diseño principal).
+1. **Usar las 10 entradas disponibles**
+   - Los 4 switches deben afectar el comportamiento.
+   - Los 6 botones deben afectar el comportamiento.
+   - No se permite dejar entradas sin uso.
 
-**Debe existir procesamiento lógico real** y ser observable en los LEDs.
+2. Utilizar todas las salidas:
+   - Los 4 LEDs verdes deben mostrar información útil.
+   - El LED RGB debe usarse de manera significativa (no decorativa).
 
----
+3. Incluir explícitamente en el HDL:
+   - Al menos una operación **AND**
+   - Al menos una operación **OR**
+   - Al menos una operación **XOR**
+   - Una operación aritmética de 4 bits:
+     - **Suma** o **resta**
 
-#### Recomendación técnica (para que sea verificable en 2 minutos)
-
-Para que su test sea útil como verificación rápida, se recomienda que el diseño tenga:
-
-- Al menos **dos operandos de 4 bits** construidos con combinaciones de switches y botones.
-- Un conjunto de salidas que muestren:
-  - Resultados lógicos (AND/OR/XOR)
-  - Resultado aritmético (suma/resta)
-  - Una bandera útil (ej. `zero`, `carry/borrow`, `paridad`)
+4. El diseño **NO puede ser trivial**:
+   - No se permite "un botón enciende un LED".
+   - No se permite cableado directo tipo `assign LED = SW;` como diseño principal.
+   - Debe existir procesamiento lógico real.
 
 ---
 
-#### Ejemplos de ideas válidas (orientativos)
+#### Restricción adicional (para evitar diseños demasiado simples)
 
-**Ejemplo A: Mini “analizador lógico-aritmético”**
-- Construir dos operandos:
-  - `A = SW[3:0]`
-  - `B = {BTN3, BTN2, BTN1, BTN0}`
-- Calcular simultáneamente:
-  - `A & B`
-  - `A | B`
-  - `A ^ B`
-  - `A + B` (o `A - B`)
-- Usar BTN4/BTN5 para seleccionar qué resultado se visualiza en cada LED RGB.
+El diseño debe incluir **dos operandos de 4 bits** construidos a partir de combinaciones de:
 
-**Ejemplo B: Sistema con firmas y banderas**
+- Switches
+- Botones
+
+Por ejemplo:
+
 - `A = SW[3:0]`
-- `B` se deriva de botones y una condición (por ejemplo invertir bits si BTN5=1)
-- Salidas incluyen:
-  - Paridad de `A` con XOR acumulado
-  - Bandera `Z` si suma es cero
-  - Bandera de `carry` en suma
+- `B = {BTN3, BTN2, BTN1, BTN0}`
 
-> Estos ejemplos no son obligatorios, solo guías. El diseño final es libre, siempre que cumpla requisitos.
+O cualquier combinación equivalente que use ambas fuentes.
 
 ---
 
-#### Evidencia requerida (en el README)
+#### Recomendación de estructura (altamente sugerida)
+
+Se recomienda que:
+
+- `LED[3:0]` muestren el resultado aritmético (suma o resta).
+- El LED RGB indique información adicional:
+  - Rojo → operación AND
+  - Verde → operación OR
+  - Azul → operación XOR
+  - O bien banderas como:
+    - Zero
+    - Carry
+    - Paridad
+
+Esto permite verificar en menos de 2 minutos que:
+
+- Las compuertas funcionan.
+- La suma/resta funciona.
+- Todas las entradas afectan el resultado.
+- El `.xdc` está correctamente asignado.
+
+---
+
+#### Ejemplo orientativo (no obligatorio)
+
+**Mini test lógico-aritmético**
+
+- `A = SW[3:0]`
+- `B = {BTN3, BTN2, BTN1, BTN0}`
+- BTN4 selecciona suma/resta.
+- BTN5 invierte B antes de operar.
+
+Operaciones implementadas:
+
+- `AND_result = A & B`
+- `OR_result  = A | B`
+- `XOR_result = A ^ B`
+- `SUM_result = A + B`
+
+Salidas:
+
+- `LED[3:0] = SUM_result`
+- `LED_RGB.R = |AND_result` (reducción OR para indicar si hay algún 1)
+- `LED_RGB.G = |OR_result`
+- `LED_RGB.B = ^SUM_result` (paridad)
+
+---
+
+#### Evidencia requerida en el README
 
 El estudiante debe incluir:
 
-1. **Descripción breve del diseño** (qué calcula y qué muestra cada LED RGB).
-2. Capturas o video corto demostrando:
-   - Que switches y botones afectan el resultado.
-   - Que se observan AND/OR/XOR y suma/resta en la práctica.
-3. Diagrama simple (puede ser a mano) mostrando:
-   - Entradas → bloques lógicos/ariméticos → salidas.
+1. Descripción clara del diseño.
+2. Explicación de:
+   - Cómo se construyen los operandos.
+   - Qué muestra cada LED.
+3. Evidencia (foto o video) demostrando:
+   - Funcionamiento correcto.
+   - Uso de todas las entradas.
+   - Uso de todas las salidas.
+   - Presencia real de AND, OR, XOR y suma/resta en el código.
 
 ---
 
