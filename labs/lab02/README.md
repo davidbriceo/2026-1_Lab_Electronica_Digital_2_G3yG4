@@ -1,4 +1,4 @@
-# Lab03: Diseño, simulación e implementación de una ALU de 4 bits
+# Lab02: Diseño, simulación e implementación de una ALU de 4 bits
 
 ## Contenido
 
