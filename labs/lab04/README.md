@@ -123,3 +123,43 @@ Durante este laboratorio se emplearán los siguientes componentes:
 En esta práctica se utilizará inicialmente el **Processing System** junto con periféricos básicos para comprender el flujo completo:
 
 **Diseño hardware en Vivado → Exportación → Desarrollo software en Vitis**
+
+# 4. Procedimiento
+## 4.1 Integrar la Zybo-z7 al entorno de vivado.
+1. Siga el paso a paso de la [siguiente página](https://digilent.com/reference/programmable-logic/guides/install-board-files?srsltid=AfmBOorC3OzN78uHx9FrXzecZKvcfOFIon4L6FowLLKsRxVVvsiouSiX) .
+Puede instalar solo la Zybo Z7 - 10 copiando únicamente esa tarjeta.
+
+## 4.2 Creación del SoC en Vivado
+1. Cree un nuevo proyecto en vivado como lo ha hecho para anteriores entregas, con la diferencia de elegir la placa en vez de la FPGA. Para ello, diríjase en la ventana de "Default Part" en la pestaña "boards" y seleccione la tarjeta Zybo Z7-10 como se muestra en la siguiente imagen:
+![Zybo Z7](src/Zybo_board.png)
+
+2. Después de crear el proyecto, en la interfaz de vivado, seleccione en el menú de la izquierda, en la categoría ```IP INTEGRATOR```, la opción ```Create Block Design```. Asignele un nombre al diseño y haga click en ```Ok```.
+3. En la ventana ```Diagram``` seleccione el ícono ```+``` y añada uno a uno los siguientes bloques:
+```Zynq Q7 Processing System
+Processor System Reset
+AXI Interconnect
+AXI BRAM Controller
+Block Memory Generator
+```
+![Bloques suertos](src/bloques_sueltos.png)
+
+4. Realice las conexiones como se muestra en la siguiente imagen:
+![Bloques unidos](src/bloques_unidos.png)
+
+5. Incluya los GPIOS de los leds y los switches seleccionándolos en la venta de la izquierda del diagrama. En la pestaña ```Board``` seleccione los GPIOs ```4 Buttons``` y ```4 LEDs```, haciendo doble click en cada uno de ellos y dando aceptar en el cuadro de diálogo que se muestra.
+![GPIO](src/GPIO.png)
+
+6. Realice las conexiones de ```clk``` y ```rst``` del nuevo bloque, luego haga click izquierdo en cualquier parte de la venta de ```Diagram``` y seleccione ```Regenerate Layout```. Su diagrama de bloques debe verse de la siguiente manera:
+![Diagrama finalizado](src/Diagrama.png)
+
+7. En la ventana del ```Diagram``` vaya a la pestaña ```Address Editor``` y en cualquier parte de la ventana en blanco haga click derecho y seleccione ```Assign```. Luego cambien el rango de memoria de 64K a 4 K de ```/axi_gpio_0/S_AXI```.
+![Address Editor](src/address_editor.png)
+
+8. Regrese a la pestaña ```Diagram```, luego de la ventana de ```Source``` a la izquierda, seleccione la fuente de diseño, que para el caso de la imagen se llama ```Zynq 7000```, haga click derecho sobre este y seleccione ```Create HDL Wrapper```, en la ventana que aparece seleccione la opción ```Let Vivado manage wrapper and auto-update```, y de click en ```Ok```.
+![Wrapper](src/wrapper.png)
+9. Después de que se haya generado el ```Wrapper``` regrese a la ventana de diagrama y en la parte superior de esta encontrará la opción ```Run Block Automatic```, de clic en ella y en la ventana de diálogo que aparece, de clic en ```Ok```.
+![Run Automatic](src/run_automatic.png)
+10. Luego genere el ```Bitstream``` como ya lo ha hecho para laboratorios anteriores.
+11. Luego de que se genere el ```Bitstream```, haga click en File - Export - Export Hardware. En la ventana que aparece (Export Hardware Platform), haga clic en ```next```, luego seleccione ```Include bitstream/binay``` y seleccione solamente ```Include Bistream```, luego haga clic en next, otra vez en next y finish. Con esta última acción se generó el archivo ```XSA``` que necesitará para el entorno de Vitis.
+![Output](src/output.png)
+12. 
