@@ -162,4 +162,7 @@ Block Memory Generator
 10. Luego genere el ```Bitstream``` como ya lo ha hecho para laboratorios anteriores.
 11. Luego de que se genere el ```Bitstream```, haga click en File - Export - Export Hardware. En la ventana que aparece (Export Hardware Platform), haga clic en ```next```, luego seleccione ```Include bitstream/binay``` y seleccione solamente ```Include Bistream```, luego haga clic en next, otra vez en next y finish. Con esta última acción se generó el archivo ```XSA``` que necesitará para el entorno de Vitis.
 ![Output](src/output.png)
-12. 
+
+
+## 4.3 Entorno de Vitis
+
