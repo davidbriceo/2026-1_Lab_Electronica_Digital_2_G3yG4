@@ -165,4 +165,21 @@ Block Memory Generator
 
 
 ## 4.3 Entorno de Vitis
+La plataforma de Software Vitis es un entorno de desarrollo integral diseñado para crear aplicaciones aceleradas en dispositivos de hardware adaptable de AMD, como los SoC y las FPGA. Vitis proporciona un nivel de abstracción más alto, trabajando en conjunto con una herramienta de diseño de hardware como lo es Vivado. Esto simplifica el proceso de desarrollo al ocultar la complejidad de la programación de lógica de hardware a bajo nivel.
 
+Para continuar con un proyecto en Vitis siga los siguientes pasos:
+1. Abrir el entorno de Vitis, para ello desde Vivado, haga clic en Tools -> Launch Vitis IDE.
+![Open Vitis](src/openVitis.png)
+2. En la ventana principal de vitis haga clic en ```Set Workspace``` y seleccione el fichero donde va a crear la aplicación.
+3. Ahora haga clic en Create Platform Component. En la ventana ```Name and Location```, en la casilla ```Component name```, elija un nombre para la platafotma y luego de clic en ```Next```. En la pestaña ```Flow``` seleccione la opción ```Hardware Desing```, luego de clic en ```Browse```, busque y seleccione el ```archivo XSA``` que generó en vivado, luego de clic en Next. En la ventana ```OS and Processor``` seleccione las opciones que aparecen en la siguiente imagen y de clic en Next. En la pestaña Summary de clic en ```Finish```.
+![Platform](src/Platform.png)
+4. En la ventana izquierda seleccione la plataforma que acaba de crear y en la parte superior seleccione el ícono ```+``` y ```Application```
+![Application](src/Application.png)
+5. En la ventana ```Create Application Component - Empty Application```, en la pestaña ```Component name```, elija un nombre para la aplicación y de clic en ```Next```. En la pestaña de ```Hardware``` seleccione la plataforma que creó en el item 3 y de clic en ```Next```.
+![Application PLA ](src/ApplicationPla.png)
+6. En la pestaña ```Domain``` asegúrese que esté seleccionado el que está por defecto y creó en la plataforma, luego de clic en ```Next```.
+![Application Dom](src/ApplicationDom.png)
+7. En la pestaña ```Add Source Files``` añada el archivo ```main.c``` que se encuentra en la carpeta ```src``` en este link.
+8. En la pestaña ```Summary``` haga una revisión del resumen que se muestra e indentifique que las opciones son correctas. De clic en ```Finish```.
+9. En la ventana ```FLOW``` a la izquierda, de clic en ```Build```, si no tiene errores, conecte la ```FPGA``` y de clic en ```RUN```. Deberá ver parpadear los leds en la Zybo.
+![Build](src/Build.png)
