@@ -183,3 +183,11 @@ Para continuar con un proyecto en Vitis siga los siguientes pasos:
 8. En la pestaña ```Summary``` haga una revisión del resumen que se muestra e indentifique que las opciones son correctas. De clic en ```Finish```.
 9. En la ventana ```FLOW``` a la izquierda, de clic en ```Build```, si no tiene errores, conecte la ```FPGA``` y de clic en ```RUN```. Deberá ver parpadear los leds en la Zybo.
 ![Build](src/Build.png)
+
+# 5. Entregables
+1. Realice cada uno de los pasos descritos y muestre las respectivas evidencias en clase y en el ```Readme.md```
+2. Adjunte las evidencias en su respectivo repositorio en Github Classroom.
+
+# 6. Referencias
+- [FPGAs for Beginners. (2023, 28 julio). Zynq Part 1: Vivado block diagram (no Verilog/VHDL necessary!). YouTube.](https://www.youtube.com/watch?v=UZ3FnZNlcWk)
+- [SoC AMD ZynqTM 7000. (s. f.). AMD](https://www.amd.com/es/products/adaptive-socs-and-fpgas/soc/zynq-7000.html)
