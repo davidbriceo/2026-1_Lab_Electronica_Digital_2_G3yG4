@@ -85,7 +85,7 @@ Cada laboratorio contará con su respectiva guía y fecha de entrega asociada.
 | 4-5    | Lab01 - FPGA, Multiplicador y ASM     | [lab01](https://github.com/davidbriceo/2026-1_Lab_Electronica_Digital_2_G3yG4/tree/main/labs/lab01)| [Link](https://classroom.github.com/a/c2Iw0pSf) | 25/Abr/2026 |
 | 6-7    | Lab02 - ALU                     | [lab02](http://github.com/davidbriceo/2026-1_Lab_Electronica_Digital_2_G3yG4/tree/main/labs/lab02) | [Link](https://classroom.github.com/a/T1DhGa3F)       | 25/Abr/2026 |
 | 8-9    | Lab03 - ALU y banco registro    | [lab03](https://github.com/davidbriceo/2026-1_Lab_Electronica_Digital_2_G3yG4/tree/main/labs/lab03) | [Link](https://classroom.github.com/a/weduUzP3)      | 9/May/2026 |
-| 11-14  | Lab04 - Procesador Block Design | lab04 | Link                       | 23/May/2026 |
+| 11-14  | Lab04 - Procesador Block Design | [lab04](https://github.com/davidbriceo/2026-1_Lab_Electronica_Digital_2_G3yG4/tree/main/labs/lab03) | [Link](https://classroom.github.com/a/V1Z0hRrl)      | 23/May/2026 |
 | 15-16  | Proyecto final                  | -     | Link                       | TBD |
 
 
