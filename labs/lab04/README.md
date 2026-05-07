@@ -189,6 +189,6 @@ Para continuar con un proyecto en Vitis siga los siguientes pasos:
 2. Adjunte las evidencias en su respectivo repositorio en Github Classroom.
 
 # 6. Referencias
-- [Diapositivas fin de curso](SoC_Zybo_Z7.pdf)
+- [Diapositivas fin de curso](SoC_Zybo_Z7-2.pdf)
 - [FPGAs for Beginners. (2023, 28 julio). Zynq Part 1: Vivado block diagram (no Verilog/VHDL necessary!). YouTube.](https://www.youtube.com/watch?v=UZ3FnZNlcWk)
 - [SoC AMD ZynqTM 7000. (s. f.). AMD](https://www.amd.com/es/products/adaptive-socs-and-fpgas/soc/zynq-7000.html)
