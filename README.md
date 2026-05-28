@@ -86,7 +86,8 @@ Cada laboratorio contará con su respectiva guía y fecha de entrega asociada.
 | 6-7    | Lab02 - ALU                     | [lab02](http://github.com/davidbriceo/2026-1_Lab_Electronica_Digital_2_G3yG4/tree/main/labs/lab02) | [Link](https://classroom.github.com/a/T1DhGa3F)       | 25/Abr/2026 |
 | 8-9    | Lab03 - ALU y banco registro    | [lab03](https://github.com/davidbriceo/2026-1_Lab_Electronica_Digital_2_G3yG4/tree/main/labs/lab03) | [Link](https://classroom.github.com/a/weduUzP3)      | 9/May/2026 |
 | 11-14  | Lab04 - Procesador Block Design | [lab04](https://github.com/davidbriceo/2026-1_Lab_Electronica_Digital_2_G3yG4/tree/main/labs/lab04) | [Link](https://classroom.github.com/a/V1Z0hRrl)      | 23/May/2026 |
-| 15-16  | Informe Proyecto final                  | -     | [Link](https://classroom.github.com/a/4ss95J5A) | TBD |
+| 15-16  | Informe Proyecto final                  | -     | [Link](https://classroom.github.com/a/4ss95J5A) | 09/Jun/2026 |
+| 15-16  | Informe Proyecto final                  | -     | [Link](https://classroom.github.com/a/SYuvltky) | 09/Jun/2026 |
 
 
 ---
